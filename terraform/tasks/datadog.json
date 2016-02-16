@@ -1,0 +1,41 @@
+[
+  {
+    "name": "dd-agent",
+    "image": "datadog/docker-dd-agent:ecs",
+    "memory": 128,
+    "cpu": 10,
+    "essential": true,
+    "environment": [
+      {
+        "name": "API_KEY",
+        "value": "f35a1ed0e3a9acf18cfe0d0ab127e745"
+      }
+    ],
+    "portMappings": [
+      {
+        "hostPort": 8125,
+        "containerPort": 8125,
+        "protocol": "udp"
+      }
+    ],
+    "mountPoints": [
+      {
+        "sourceVolume": "docker_sock",
+        "containerPath": "/var/run/docker.sock",
+        "readOnly": false
+      },
+      {
+        "sourceVolume": "proc",
+        "containerPath": "/host/proc/",
+        "readOnly": true
+      },
+      {
+        "sourceVolume": "cgroup",
+        "containerPath": "/host/sys/fs/cgroup",
+        "readOnly": true
+      }
+    ]
+
+  }
+]
+

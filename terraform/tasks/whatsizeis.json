@@ -1,0 +1,38 @@
+[
+  {
+    "name": "whatsize",
+    "image": "574466195236.dkr.ecr.us-east-1.amazonaws.com/whatsize_ecr:latest",
+    "cpu": 500,
+    "memory": 200,
+    "entryPoint": [],
+    "environment": [
+      {
+        "name": "RAILS_ENV",
+        "value": "production"
+      },
+      {
+        "name": "RACK_ENV",
+        "value": "production"
+      },
+      {
+        "name": "SECRET_KEY_BASE",
+        "value": "${secret_key_base}"
+      },
+      {
+        "name": "DATABASE_PASSWORD",
+        "value": "${database_password}"
+      }
+    ],
+    "portMappings": [
+      {
+        "hostPort": 5000,
+        "containerPort": 3000,
+        "protocol": "tcp"
+      }
+    ],
+    "volumesFrom": [],
+    "links": [],
+    "mountPoints": [],
+    "essential": true
+  }
+]
